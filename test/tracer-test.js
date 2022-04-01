@@ -6,10 +6,7 @@
  */
 
 var assert = require('assert');
-var ec = require('ec'), _ = ec._, log = ec.log;
-
 var tracer = require('../lib/tracer.js');
-var begin = require('begin');
 
 describe("Log Tracer", function() {
 

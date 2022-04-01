@@ -1,8 +1,8 @@
 {
   "name": "logsync",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Logging framework for node.js",
-  "main": "index.js",
+  "main": "./lib/log.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,7 +12,7 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "sprintf": "^0.1.5",
+    "sprintf-js": "^1.1.2",
     "strftime": "^0.10.0"
   }
 }

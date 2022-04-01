@@ -6,14 +6,7 @@
  */
 
 var assert = require('assert');
-var ec = require('ec'), _ = ec._, log = ec.log;
-
 var log = require('../lib/log.js');
-
-require('ec/lib/debug').
-//  trace(SomeClass).
-//  trace(require('../lib/some_file.js')).
-  toString();
 
 describe("NDC Latency", function() {
 

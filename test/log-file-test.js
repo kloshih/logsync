@@ -1,8 +1,7 @@
 
 
 const assert = require('assert');
-const begin = require('begin');
-const log = require('log');
+// const log = require('log');
 
 const log2 = require('../lib/log.js');
 const FileTransport = require('../lib/log-file.js');
@@ -15,7 +14,7 @@ describe("log", function() {
     /*  */
     class SuperFormat extends log2.Format {
       format(record) {
-        log('info', "super.format: #gr[%s]", record);
+        log2('info', "super.format: #gr[%s]", record);
         return JSON.stringify(record);
       }
     }
