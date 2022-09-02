@@ -30,9 +30,11 @@ describe("Log Tracer", function() {
       assert.equal(res, 24)
 
       tracer.trace(SuperCalc, {supermethods:true});
+
       console.log("calc 2 - traced supercalc/calc");
       var res = calc.mul(3, 4, 5);
       assert.equal(res, 60)
+
       console.log("calc 2 - traced supercalc/calc with error");
       assert.throws(function() {
         var res = calc.mul(0, 1, 2);
@@ -44,9 +46,11 @@ describe("Log Tracer", function() {
       var calc2 = new Calc();
       console.log("calc 2 - bare calc2");
       calc2.mul(10, 20);
+
       tracer.trace(Calc, {supermethods:true});
       console.log("calc 2 - traced calc2");
       calc2.mul(11, 21);
+
       tracer.untrace(Calc);
       console.log("calc 2 - untraced calc2");
       calc2.mul(12, 22);

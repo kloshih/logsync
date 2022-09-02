@@ -1,18 +1,39 @@
 {
   "name": "logsync",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Logging framework for node.js",
-  "main": "./lib/log.js",
+  "main": "./lib/index.js",
+  "typings": "./types/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "test:watch": "mocha --parallel --watch 'test/!(*.e2e).test.js'",
+    "test:watch:all": "mocha --parallel --watch",
+    "test:coverage": "c8 mocha",
+    "build:docs": "jsdoc -c jsdoc.json",
+    "build:clean": "rimraf types",
+    "build:types": "tsc -b tsconfig.types.json",
+    "build:types:watch": "tsc -b tsconfig.types.json -w"
   },
   "author": "Lo Shih <kloshih@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.7.3",
+    "c8": "^7.12.0",
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.1",
+    "mocha": "^10.0.0",
+    "pino": "^8.4.0",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "sprintf-js": "^1.1.2",
     "strftime": "^0.10.0"
+  },
+  "mocha": {
+    "require": [
+      "dotenv/config"
+    ]
   }
 }

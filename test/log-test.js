@@ -7,7 +7,8 @@
 
 var assert = require('assert');
 
-var log = require('../lib/log.js');
+/** @type {import('../lib/log.js')} */
+var { log } = require('../lib/log.js');
 //var log = require('../index.js');
 
 describe("Log", function() {
@@ -54,7 +55,7 @@ describe("Log", function() {
   describe("Checking log.loc()", function() {
 
     it("supports the right location", function() {
-      var record = log.loc();
+      var record = log.loc(0);
       assert.equal(record.file, 'log-test.js');
       console.log("record: " + JSON.stringify(record, null, "  "));
     });
@@ -64,7 +65,7 @@ describe("Log", function() {
   describe("Checking log.maxLevel()", function() {
 
     it("can get max level", function() {
-      var record = log.loc();
+      var record = log.loc(1);
       var maxLevel = log.maxLevel(record);
       console.log("maxLevel " + maxLevel);
     });

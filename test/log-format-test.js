@@ -1,15 +1,15 @@
 
+const { assert } = require('chai');
 
-const assert = require('assert');
-
-const log2 = require('../lib/log.js');
+const { log } = require('../lib/log.js');
 
 describe("log", function() {
+
   this.timeout(60e3);
 
   it.skip("should do something", function() {
 
-    class FileTransport extends log2.Transport {
+    class FileTransport extends log.Transport {
 
       attach(log2) {
         console.log("file.attach: %s", log2);
@@ -30,21 +30,21 @@ describe("log", function() {
       }
 
     }
-    log2.use(FileTransport);
+    log.use(FileTransport);
 
-    class SuperFormat extends log2.Format {
+    class SuperFormat extends log.Format {
       format(record) {
-        log2('info', "super.format: #gr[%s", record);
+        log('info', "super.format: #gr[%s", record);
         return JSON.stringify(record);
       }
     }
-    log2.use(SuperFormat);
+    log.use(SuperFormat);
 
-    log2.configure({transports:'file?format=super&file=/var/log/${prog}-${gen}.log'});
-    log2('info', "Test");
-    log2.configure({transports:'file?format=super'});
+    log.configure({transports:'file?format=super&file=/var/log/${prog}-${gen}.log'});
+    log('info', "Test");
+    log.configure({transports:'file?format=super'});
 
-    log2('info', "Test");
+    log('info', "Test");
 
   });
 

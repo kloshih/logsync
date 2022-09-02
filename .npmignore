@@ -1,0 +1,5 @@
+
+lib/**/*.spec.js
+
+test/**/*
+
